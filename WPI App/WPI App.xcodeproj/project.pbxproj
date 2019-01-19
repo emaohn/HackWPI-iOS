@@ -19,6 +19,7 @@
 		E8B9C5B321F2E1A700BFCBE2 /* emergencyicon.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B9C5B221F2E1A700BFCBE2 /* emergencyicon.png */; };
 		E8B9C5B521F2E1AD00BFCBE2 /* homeicon.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B9C5B421F2E1AC00BFCBE2 /* homeicon.png */; };
 		E8B9C5B721F2E1B200BFCBE2 /* lockicon.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B9C5B621F2E1B200BFCBE2 /* lockicon.png */; };
+		E8B9C5BB21F3759000BFCBE2 /* DataSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B9C5BA21F3759000BFCBE2 /* DataSettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		E8B9C5B221F2E1A700BFCBE2 /* emergencyicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emergencyicon.png; sourceTree = "<group>"; };
 		E8B9C5B421F2E1AC00BFCBE2 /* homeicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeicon.png; sourceTree = "<group>"; };
 		E8B9C5B621F2E1B200BFCBE2 /* lockicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockicon.png; sourceTree = "<group>"; };
+		E8B9C5BA21F3759000BFCBE2 /* DataSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,13 +70,12 @@
 		E8B9C58221F2E07A00BFCBE2 /* WPI App */ = {
 			isa = PBXGroup;
 			children = (
+				E8B9C5B921F36A7100BFCBE2 /* Storyboards */,
+				E8B9C5B821F36A6B00BFCBE2 /* Services */,
 				E8B9C5A321F2E0F600BFCBE2 /* Views */,
 				E8B9C5A221F2E0E100BFCBE2 /* View Controllers */,
 				E8B9C58321F2E07A00BFCBE2 /* AppDelegate.swift */,
-				E8B9C5A721F2E11000BFCBE2 /* UIColor+TC.swift */,
-				E8B9C58721F2E07A00BFCBE2 /* Main.storyboard */,
 				E8B9C58D21F2E07B00BFCBE2 /* Assets.xcassets */,
-				E8B9C58F21F2E07B00BFCBE2 /* LaunchScreen.storyboard */,
 				E8B9C59221F2E07B00BFCBE2 /* Info.plist */,
 				E8B9C58A21F2E07A00BFCBE2 /* WPI_App.xcdatamodeld */,
 				E8B9C5B021F2E1A300BFCBE2 /* tempicon.png */,
@@ -89,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				E8B9C59B21F2E0D900BFCBE2 /* HomeViewController.swift */,
+				E8B9C5BA21F3759000BFCBE2 /* DataSettingViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -99,6 +101,23 @@
 				E8B9C5A421F2E10300BFCBE2 /* DataTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E8B9C5B821F36A6B00BFCBE2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E8B9C5A721F2E11000BFCBE2 /* UIColor+TC.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E8B9C5B921F36A7100BFCBE2 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E8B9C58721F2E07A00BFCBE2 /* Main.storyboard */,
+				E8B9C58F21F2E07B00BFCBE2 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8B9C58C21F2E07A00BFCBE2 /* WPI_App.xcdatamodeld in Sources */,
+				E8B9C5BB21F3759000BFCBE2 /* DataSettingViewController.swift in Sources */,
 				E8B9C5AC21F2E11100BFCBE2 /* UIColor+TC.swift in Sources */,
 				E8B9C58421F2E07A00BFCBE2 /* AppDelegate.swift in Sources */,
 				E8B9C5A021F2E0D900BFCBE2 /* HomeViewController.swift in Sources */,

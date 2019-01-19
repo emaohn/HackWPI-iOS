@@ -8,88 +8,99 @@
 
 import UIKit
 
-class HomeViewController: UITableViewController {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var doorSettingContainerView: UIView!
+    @IBOutlet weak var doorContainerBottomConstraint: NSLayoutConstraint!
+    @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setup()
+//        NotificationCenter.default.addObserver(self, selector: #selector(toggleDoorSettings), name: NSNotification.Name("ToggleDoorSettings"), object: nil)
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func setup(){
+        doorSettingContainerView.layer.shadowOffset = CGSize(width: 0, height: 1)
+        doorSettingContainerView.layer.shadowOpacity = 1
+        doorSettingContainerView.layer.shadowOffset = CGSize.zero
+        doorSettingContainerView.layer.shadowColor = UIColor.black.cgColor
+        doorSettingContainerView.layer.shadowRadius = 15
+        doorSettingContainerView.layer.cornerRadius = 10
+        doorSettingContainerView.layer.masksToBounds = true
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
-        //case 0: self.performSegue(withIdentifier: "openDoorActivity", sender: self)
-        case 1: self.performSegue(withIdentifier: "openTempActivity", sender: self)
-        case 2: self.performSegue(withIdentifier: "openLightActivity", sender: self)
-        case 3: self.performSegue(withIdentifier: "openHomeActivity", sender: self)
+        case 0: toggleDoorSettings()
+        //case 1: self.performSegue(withIdentifier: "openTempActivity", sender: self)
+        //case 2: self.performSegue(withIdentifier: "openLightActivity", sender: self)
+        //case 3: self.performSegue(withIdentifier: "openHomeActivity", sender: self)
         default: print("nothing")
         }
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath) as! DataTableViewCell
         
         switch indexPath.row {
         case 0:
             cell.titleLabel.text = "Door State"
-            cell.titleLabel.textColor = UIColor.tcReallyLightBlue
-            cell.statLabel.textColor = UIColor.tcReallyLightBlue
             cell.statLabel.text = "LOCKED"
-            cell.selectionStyle = .none
             cell.iconImageView.image = UIImage(named: "lockicon.png")
-            return cell
         case 1:
             cell.titleLabel.text = "Temperature"
-            cell.titleLabel.textColor = UIColor.tcReallyLightBlue
-            cell.statLabel.textColor = UIColor.tcReallyLightBlue
             cell.statLabel.text = "100"
-            cell.selectionStyle = .none
             cell.iconImageView.image = UIImage(named: "homeicon.png")
-            return cell
         case 2:
             cell.titleLabel.text = "Light Activity"
             cell.statLabel.text = "BRIGHT"
-            cell.titleLabel.textColor = UIColor.tcReallyLightBlue
-            cell.statLabel.textColor = UIColor.tcReallyLightBlue
-            cell.selectionStyle = .none
             cell.iconImageView.image = UIImage(named: "tempicon.png")
-            return cell
         case 3:
             cell.titleLabel.text = "Suspicions Raised"
-            cell.titleLabel.textColor = UIColor.tcReallyLightBlue
-            cell.statLabel.textColor = UIColor.tcReallyLightBlue
             cell.statLabel.text = "Quiet"
-            cell.selectionStyle = .none
             cell.iconImageView.image = UIImage(named: "emergencyicon.png")
-            return cell
         case 4:
             cell.titleLabel.text = "Humidity"
-            cell.titleLabel.textColor = UIColor.tcReallyLightBlue
-            cell.statLabel.textColor = UIColor.tcReallyLightBlue
             cell.statLabel.text = "15%"
-            cell.selectionStyle = .none
             cell.iconImageView.image = UIImage(named: "emergencyicon.png")
-            return cell
         case 5:
             cell.titleLabel.text = "Motion Activity"
-            cell.titleLabel.textColor = UIColor.tcReallyLightBlue
-            cell.statLabel.textColor = UIColor.tcReallyLightBlue
             cell.statLabel.text = "Quiet"
-            cell.selectionStyle = .none
             cell.iconImageView.image = UIImage(named: "emergencyicon.png")
-            return cell
-        default: return UITableViewCell()
+        default: return cell
+        }
+        
+        cell.titleLabel.textColor = UIColor.tcReallyLightBlue
+        cell.statLabel.textColor = UIColor.tcReallyLightBlue
+        cell.selectionStyle = .none
+        
+        return cell
+    }
+    
+    @objc func toggleDoorSettings(){
+        if doorContainerBottomConstraint.constant == CGFloat(-200) {
+            doorContainerBottomConstraint.constant = 200
+        } else {
+            doorContainerBottomConstraint.constant = -200
+        }
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
         }
     }
-
+    @IBAction func tapGestureRecognizer(_ sender: UITapGestureRecognizer) {
+        toggleDoorSettings()
+    }
+    
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
     }
 }
