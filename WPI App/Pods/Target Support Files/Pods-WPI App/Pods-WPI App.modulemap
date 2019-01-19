@@ -1,0 +1,6 @@
+framework module Pods_WPI_App {
+  umbrella header "Pods-WPI App-umbrella.h"
+
+  export *
+  module * { export * }
+}

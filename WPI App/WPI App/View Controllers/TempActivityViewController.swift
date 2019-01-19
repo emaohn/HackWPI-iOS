@@ -26,6 +26,18 @@ class TempActivityViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tempSetter.value = 70.3
+        reloadValues()
+    }
+    
+    func reloadValues() {
+        goalTempLabel.text = "\(tempSetter.value)"
+        currentTempLabel.text = "65.8"
+        goalProgressView.progress = 0.95
+        efficiencyProgressView.progress = 0.6
+    }
+    
     func setup(){
         overallView.backgroundColor = UIColor.tcDarkBlue
         
@@ -55,6 +67,6 @@ class TempActivityViewController: UIViewController {
     }
 
     @IBAction func tempSetterToggled(_ sender: UIStepper) {
-        
+        reloadValues()
     }
 }

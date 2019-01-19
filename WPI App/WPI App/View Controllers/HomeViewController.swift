@@ -106,6 +106,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
+        tableView.reloadData()
     }
     
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
