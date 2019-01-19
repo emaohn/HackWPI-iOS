@@ -152,7 +152,7 @@
                                                     <constraint firstAttribute="width" secondItem="oJz-wb-uNh" secondAttribute="height" multiplier="83:21" id="RER-Ok-AOm"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="32"/>
-                                                <color key="textColor" red="0.54509803921568623" green="0.5725490196078431" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max Quotient" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Yc-x4-jus">
@@ -172,7 +172,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmc-rf-cUE">
                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="27.5"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="31"/>
-                                                <color key="textColor" red="0.54509803921568623" green="0.5725490196078431" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Quotient" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5e-b8-F4D">
@@ -192,25 +192,37 @@
                                             <constraint firstAttribute="width" secondItem="SIF-Z6-9mN" secondAttribute="height" multiplier="77:48" id="wqd-Va-SI5"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="50"/>
-                                        <color key="textColor" red="0.54509803921568623" green="0.5725490196078431" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.1764705882" green="0.56078431370000004" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="yfq-Mn-7e3">
+                                        <rect key="frame" x="218" y="71" width="94" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="yfq-Mn-7e3" secondAttribute="height" multiplier="94:29" id="jfW-eU-XUt"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.1764705882" green="0.56078431370000004" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="tempSetterToggled:" destination="9a9-MZ-rAb" eventType="valueChanged" id="S1I-aF-C2s"/>
+                                        </connections>
+                                    </stepper>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="65.8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsr-3E-Z7L">
                                         <rect key="frame" x="15" y="175" width="95" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="xsr-3E-Z7L" secondAttribute="height" multiplier="19:12" id="jxT-Jz-WVL"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="50"/>
-                                        <color key="textColor" red="0.54509803921568623" green="0.5725490196078431" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.1764705882" green="0.56078431370000004" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.12549019607843137" green="0.16078431372549018" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="yfq-Mn-7e3" firstAttribute="centerY" secondItem="SIF-Z6-9mN" secondAttribute="centerY" id="4Dx-2U-u0d"/>
                                     <constraint firstAttribute="trailing" secondItem="Ubz-Q0-IqL" secondAttribute="trailing" constant="15" id="AQR-cU-vps"/>
                                     <constraint firstItem="Ubz-Q0-IqL" firstAttribute="leading" secondItem="XRV-Ag-NXT" secondAttribute="leading" constant="15" id="Aay-zF-MkR"/>
                                     <constraint firstItem="xsr-3E-Z7L" firstAttribute="leading" secondItem="XRV-Ag-NXT" secondAttribute="leading" constant="15" id="EIU-n8-IIc"/>
                                     <constraint firstItem="rVj-Rw-lUw" firstAttribute="top" secondItem="SIF-Z6-9mN" secondAttribute="bottom" constant="24" id="HMW-uz-XQZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="yfq-Mn-7e3" secondAttribute="trailing" constant="15" id="MPc-OK-Ve8"/>
                                     <constraint firstAttribute="trailing" secondItem="rVj-Rw-lUw" secondAttribute="trailing" constant="15" id="RRe-NP-jjY"/>
                                     <constraint firstItem="rVj-Rw-lUw" firstAttribute="leading" secondItem="XRV-Ag-NXT" secondAttribute="leading" constant="15" id="WMU-TS-tYt"/>
                                     <constraint firstItem="Ubz-Q0-IqL" firstAttribute="top" secondItem="XRV-Ag-NXT" secondAttribute="top" constant="8" id="nwX-yT-xt3"/>
@@ -233,8 +245,8 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="f36-Gi-c35"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="21"/>
-                                                        <color key="textColor" red="0.5450980392" green="0.57254901960000004" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="25"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="95%" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8m-oL-9yS">
@@ -260,8 +272,8 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="2C3-7d-TX9"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="21"/>
-                                                        <color key="textColor" red="0.5450980392" green="0.57254901960000004" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="25"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60%" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1k-05-tq1">
@@ -298,7 +310,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.1019607843" green="0.12549019610000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.1019607843" green="0.12549019610000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="0Sn-oq-XqT" firstAttribute="top" secondItem="XRV-Ag-NXT" secondAttribute="bottom" constant="24" id="3c3-DT-lJW"/>
                             <constraint firstItem="mTb-aC-z9e" firstAttribute="bottom" secondItem="0Sn-oq-XqT" secondAttribute="bottom" constant="24" id="UjM-oR-eQV"/>
@@ -310,6 +323,9 @@
                             <constraint firstItem="mTb-aC-z9e" firstAttribute="trailing" secondItem="XRV-Ag-NXT" secondAttribute="trailing" constant="24" id="bQg-fg-BJZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mTb-aC-z9e"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="a4D-r4-89e" appends="YES" id="0Z7-hQ-f0N"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Temperature Activity" id="qu9-g3-ecL"/>
                     <connections>
@@ -318,12 +334,20 @@
                         <outlet property="efficiencyProgressView" destination="kZx-nB-YOI" id="ZHg-Lb-RyE"/>
                         <outlet property="goalProgressView" destination="4U4-j2-jhD" id="f46-Gn-tFb"/>
                         <outlet property="goalTempLabel" destination="SIF-Z6-9mN" id="4gm-Ln-tzb"/>
+                        <outlet property="overallView" destination="xUg-Bx-gNA" id="gLn-mc-fVF"/>
                         <outlet property="percentToGoalLabel" destination="A8m-oL-9yS" id="16D-ra-cbc"/>
                         <outlet property="percentView" destination="0Sn-oq-XqT" id="pE7-7X-XpI"/>
                         <outlet property="statView" destination="XRV-Ag-NXT" id="RhZ-qv-UJW"/>
+                        <outlet property="tempSetter" destination="yfq-Mn-7e3" id="hoz-k0-1C7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rnx-Nx-Thl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Zha-j7-ntM" userLabel="Exit" sceneMemberID="exit"/>
+                <swipeGestureRecognizer direction="right" id="a4D-r4-89e">
+                    <connections>
+                        <segue destination="Zha-j7-ntM" kind="unwind" unwindAction="unwindWithSegue:" id="NEA-Ca-Pt5"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3164" y="-580.65967016491754"/>
         </scene>
@@ -379,18 +403,28 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="xeK-B4-UsL" secondAttribute="trailing" constant="15" id="4sT-WK-z8o"/>
                             <constraint firstItem="Ptp-q4-jqN" firstAttribute="centerY" secondItem="dCe-Zr-peF" secondAttribute="centerY" id="rBu-1C-FzI"/>
                             <constraint firstItem="xeK-B4-UsL" firstAttribute="leading" secondItem="dCe-Zr-peF" secondAttribute="leading" constant="15" id="tp0-sf-s3S"/>
                             <constraint firstItem="xeK-B4-UsL" firstAttribute="centerY" secondItem="dCe-Zr-peF" secondAttribute="centerY" id="xHv-7A-tDQ"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="VNL-cp-NGA" appends="YES" id="Ifl-Wa-FkI"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="doorLockedSwitch" destination="Ptp-q4-jqN" id="tOn-Ts-16V"/>
+                        <outlet property="tapGestureRecognizer" destination="VNL-cp-NGA" id="dV2-fa-4Cj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nVs-Iq-Gqm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="VNL-cp-NGA">
+                    <connections>
+                        <action selector="tapGestureRecognizer:" destination="Pkq-YI-8vB" id="5gB-mf-hCF"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2452" y="-46"/>
         </scene>

@@ -10,6 +10,7 @@ import UIKit
 
 class DataSettingViewController: UIViewController {
     @IBOutlet weak var doorLockedSwitch: UISwitch!
+    @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,5 +21,9 @@ class DataSettingViewController: UIViewController {
     @IBAction func doorLockedToggled(_ sender: UISwitch) {
         
     }
-
+    
+    @IBAction func tapGestureRecognizer(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name("ToggleDoorSettings"), object: nil)
+    }
+    
 }

@@ -20,7 +20,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setup()
+        NotificationCenter.default.addObserver(self, selector: #selector(toggleDoorSettings), name: NSNotification.Name("ToggleDoorSettings"), object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
     func setup(){
@@ -56,15 +62,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         switch indexPath.row {
         case 0:
-            cell.titleLabel.text = "Door State"
+            cell.titleLabel.text = "Door State >"
             cell.statLabel.text = "OPEN"
             cell.iconImageView.image = UIImage(named: "lockicon.png")
         case 1:
-            cell.titleLabel.text = "Temperature"
+            cell.titleLabel.text = "Temperature >"
             cell.statLabel.text = "100"
             cell.iconImageView.image = UIImage(named: "homeicon.png")
         case 2:
-            cell.titleLabel.text = "Light State"
+            cell.titleLabel.text = "Light State >"
             cell.statLabel.text = "BRIGHT"
             cell.iconImageView.image = UIImage(named: "tempicon.png")
         case 3:
@@ -92,8 +98,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @objc func toggleDoorSettings(){
         if doorContainerBottomConstraint.constant == CGFloat(-200) {
             doorContainerBottomConstraint.constant = screenHeight/2 - 50
+            tableView.isUserInteractionEnabled = false
         } else {
             doorContainerBottomConstraint.constant = -200
+            tableView.isUserInteractionEnabled = true
         }
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
