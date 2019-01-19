@@ -20,6 +20,9 @@
 		E8B9C5B521F2E1AD00BFCBE2 /* homeicon.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B9C5B421F2E1AC00BFCBE2 /* homeicon.png */; };
 		E8B9C5B721F2E1B200BFCBE2 /* lockicon.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B9C5B621F2E1B200BFCBE2 /* lockicon.png */; };
 		E8B9C5BB21F3759000BFCBE2 /* DataSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B9C5BA21F3759000BFCBE2 /* DataSettingViewController.swift */; };
+		E8B9C5BD21F3788800BFCBE2 /* humidityicon.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B9C5BC21F3788800BFCBE2 /* humidityicon.png */; };
+		E8B9C5C121F378D500BFCBE2 /* motionicon.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B9C5C021F378D400BFCBE2 /* motionicon.png */; };
+		E8B9C5C321F3818F00BFCBE2 /* TempActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B9C5C221F3818F00BFCBE2 /* TempActivityViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		E8B9C5B421F2E1AC00BFCBE2 /* homeicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeicon.png; sourceTree = "<group>"; };
 		E8B9C5B621F2E1B200BFCBE2 /* lockicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockicon.png; sourceTree = "<group>"; };
 		E8B9C5BA21F3759000BFCBE2 /* DataSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSettingViewController.swift; sourceTree = "<group>"; };
+		E8B9C5BC21F3788800BFCBE2 /* humidityicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = humidityicon.png; sourceTree = "<group>"; };
+		E8B9C5C021F378D400BFCBE2 /* motionicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = motionicon.png; sourceTree = "<group>"; };
+		E8B9C5C221F3818F00BFCBE2 /* TempActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempActivityViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +88,8 @@
 				E8B9C5B221F2E1A700BFCBE2 /* emergencyicon.png */,
 				E8B9C5B421F2E1AC00BFCBE2 /* homeicon.png */,
 				E8B9C5B621F2E1B200BFCBE2 /* lockicon.png */,
+				E8B9C5C021F378D400BFCBE2 /* motionicon.png */,
+				E8B9C5BC21F3788800BFCBE2 /* humidityicon.png */,
 			);
 			path = "WPI App";
 			sourceTree = "<group>";
@@ -91,6 +99,7 @@
 			children = (
 				E8B9C59B21F2E0D900BFCBE2 /* HomeViewController.swift */,
 				E8B9C5BA21F3759000BFCBE2 /* DataSettingViewController.swift */,
+				E8B9C5C221F3818F00BFCBE2 /* TempActivityViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -179,6 +188,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8B9C59121F2E07B00BFCBE2 /* LaunchScreen.storyboard in Resources */,
+				E8B9C5C121F378D500BFCBE2 /* motionicon.png in Resources */,
+				E8B9C5BD21F3788800BFCBE2 /* humidityicon.png in Resources */,
 				E8B9C58E21F2E07B00BFCBE2 /* Assets.xcassets in Resources */,
 				E8B9C5B121F2E1A300BFCBE2 /* tempicon.png in Resources */,
 				E8B9C5B721F2E1B200BFCBE2 /* lockicon.png in Resources */,
@@ -199,6 +210,7 @@
 				E8B9C5BB21F3759000BFCBE2 /* DataSettingViewController.swift in Sources */,
 				E8B9C5AC21F2E11100BFCBE2 /* UIColor+TC.swift in Sources */,
 				E8B9C58421F2E07A00BFCBE2 /* AppDelegate.swift in Sources */,
+				E8B9C5C321F3818F00BFCBE2 /* TempActivityViewController.swift in Sources */,
 				E8B9C5A021F2E0D900BFCBE2 /* HomeViewController.swift in Sources */,
 				E8B9C5A521F2E10300BFCBE2 /* DataTableViewCell.swift in Sources */,
 			);

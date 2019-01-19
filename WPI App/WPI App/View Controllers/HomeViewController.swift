@@ -13,12 +13,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var doorSettingContainerView: UIView!
     @IBOutlet weak var doorContainerBottomConstraint: NSLayoutConstraint!
-    @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
+    
+    public var screenHeight: CGFloat {
+        return UIScreen.main.bounds.height
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-//        NotificationCenter.default.addObserver(self, selector: #selector(toggleDoorSettings), name: NSNotification.Name("ToggleDoorSettings"), object: nil)
     }
     
     func setup(){
@@ -42,7 +44,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0: toggleDoorSettings()
-        //case 1: self.performSegue(withIdentifier: "openTempActivity", sender: self)
+        case 1: self.performSegue(withIdentifier: "openTempActivity", sender: self)
         //case 2: self.performSegue(withIdentifier: "openLightActivity", sender: self)
         //case 3: self.performSegue(withIdentifier: "openHomeActivity", sender: self)
         default: print("nothing")
@@ -55,28 +57,28 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         switch indexPath.row {
         case 0:
             cell.titleLabel.text = "Door State"
-            cell.statLabel.text = "LOCKED"
+            cell.statLabel.text = "OPEN"
             cell.iconImageView.image = UIImage(named: "lockicon.png")
         case 1:
             cell.titleLabel.text = "Temperature"
             cell.statLabel.text = "100"
             cell.iconImageView.image = UIImage(named: "homeicon.png")
         case 2:
-            cell.titleLabel.text = "Light Activity"
+            cell.titleLabel.text = "Light State"
             cell.statLabel.text = "BRIGHT"
             cell.iconImageView.image = UIImage(named: "tempicon.png")
         case 3:
             cell.titleLabel.text = "Suspicions Raised"
-            cell.statLabel.text = "Quiet"
+            cell.statLabel.text = "157"
             cell.iconImageView.image = UIImage(named: "emergencyicon.png")
         case 4:
             cell.titleLabel.text = "Humidity"
             cell.statLabel.text = "15%"
-            cell.iconImageView.image = UIImage(named: "emergencyicon.png")
+            cell.iconImageView.image = UIImage(named: "humidityicon.png")
         case 5:
             cell.titleLabel.text = "Motion Activity"
             cell.statLabel.text = "Quiet"
-            cell.iconImageView.image = UIImage(named: "emergencyicon.png")
+            cell.iconImageView.image = UIImage(named: "motionicon.png")
         default: return cell
         }
         
@@ -89,16 +91,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @objc func toggleDoorSettings(){
         if doorContainerBottomConstraint.constant == CGFloat(-200) {
-            doorContainerBottomConstraint.constant = 200
+            doorContainerBottomConstraint.constant = screenHeight/2 - 50
         } else {
             doorContainerBottomConstraint.constant = -200
         }
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
-    }
-    @IBAction func tapGestureRecognizer(_ sender: UITapGestureRecognizer) {
-        toggleDoorSettings()
     }
     
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
