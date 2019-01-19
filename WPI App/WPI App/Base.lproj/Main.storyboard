@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TKj-BF-nlv">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Smart Home-->
+        <scene sceneID="hbY-r0-S7x">
+            <objects>
+                <tableViewController id="bJH-GY-Vw0" customClass="HomeViewController" customModule="SmartHome" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vkh-5v-OAD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.1019607843" green="0.12549019610000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.1019607843" green="0.12549019610000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dataCell" rowHeight="175" id="8Hk-C3-boe" customClass="DataTableViewCell" customModule="SmartHome" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="175"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Hk-C3-boe" id="AQk-rh-1MW">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="175"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4iA-GG-mzD">
+                                            <rect key="frame" x="15" y="35" width="345" height="125"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="6ip-jZ-Tg4">
+                                                    <rect key="frame" x="227" y="8" width="103" height="66"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door State" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nX7-ie-1hq">
+                                                            <rect key="frame" x="27.5" y="0.0" width="75.5" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="nX7-ie-1hq" secondAttribute="height" multiplier="83:33" id="qzG-9P-fOW"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCKED" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FML-Un-dbd">
+                                                            <rect key="frame" x="0.0" y="30" width="103" height="36"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="FML-Un-dbd" secondAttribute="height" multiplier="103:36" id="DYz-Ym-2nn"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="30"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="6ip-jZ-Tg4" secondAttribute="height" multiplier="103:66" id="85k-pf-AcL"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.12549019610000001" green="0.16078431369999999" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="6ip-jZ-Tg4" firstAttribute="top" secondItem="4iA-GG-mzD" secondAttribute="top" constant="8" id="m9z-J1-ZRz"/>
+                                                <constraint firstAttribute="trailing" secondItem="6ip-jZ-Tg4" secondAttribute="trailing" constant="15" id="tT7-Rc-TM4"/>
+                                            </constraints>
+                                        </view>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lockicon.png" translatesAutoresizingMaskIntoConstraints="NO" id="KEt-VQ-lfI">
+                                            <rect key="frame" x="35" y="15" width="95" height="95"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="95" id="4ve-eP-eOY"/>
+                                                <constraint firstAttribute="width" constant="95" id="Xa9-KC-s8n"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.1019607843" green="0.12549019610000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="KEt-VQ-lfI" firstAttribute="top" secondItem="AQk-rh-1MW" secondAttribute="top" constant="15" id="8Ma-xP-B3N"/>
+                                        <constraint firstItem="KEt-VQ-lfI" firstAttribute="leading" secondItem="AQk-rh-1MW" secondAttribute="leading" constant="35" id="FWt-Sd-ema"/>
+                                        <constraint firstAttribute="bottom" secondItem="4iA-GG-mzD" secondAttribute="bottom" constant="15" id="Hqx-SK-eSX"/>
+                                        <constraint firstItem="4iA-GG-mzD" firstAttribute="leading" secondItem="AQk-rh-1MW" secondAttribute="leading" constant="15" id="Kwr-Tm-ZlZ"/>
+                                        <constraint firstItem="4iA-GG-mzD" firstAttribute="top" secondItem="AQk-rh-1MW" secondAttribute="top" constant="35" id="N5P-sh-S2C"/>
+                                        <constraint firstAttribute="trailing" secondItem="4iA-GG-mzD" secondAttribute="trailing" constant="15" id="qsq-eq-AQ3"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="iconImageView" destination="KEt-VQ-lfI" id="poQ-re-5gd"/>
+                                    <outlet property="statLabel" destination="FML-Un-dbd" id="CEe-Hw-qdJ"/>
+                                    <outlet property="titleLabel" destination="nX7-ie-1hq" id="owm-it-Kcj"/>
+                                    <outlet property="view" destination="4iA-GG-mzD" id="mnE-mA-Bbb"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="bJH-GY-Vw0" id="oT4-tq-2Od"/>
+                            <outlet property="delegate" destination="bJH-GY-Vw0" id="zqS-OM-uXC"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Smart Home" id="IH3-e5-IgU"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fvM-2R-WMi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1773.5999999999999" y="132.68365817091455"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="AOM-q3-dSe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TKj-BF-nlv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="p1y-Q2-0hY">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.1843137255" green="0.1764705882" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bJH-GY-Vw0" kind="relationship" relationship="rootViewController" id="2af-2t-Eaw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iSn-hG-Zcw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1032.8" y="132.68365817091455"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="lockicon.png" width="1536" height="1536"/>
+    </resources>
+</document>
