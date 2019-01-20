@@ -20,7 +20,7 @@
 		E8B9C5B321F2E1A700BFCBE2 /* emergencyicon.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B9C5B221F2E1A700BFCBE2 /* emergencyicon.png */; };
 		E8B9C5B521F2E1AD00BFCBE2 /* homeicon.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B9C5B421F2E1AC00BFCBE2 /* homeicon.png */; };
 		E8B9C5B721F2E1B200BFCBE2 /* lockicon.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B9C5B621F2E1B200BFCBE2 /* lockicon.png */; };
-		E8B9C5BB21F3759000BFCBE2 /* DataSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B9C5BA21F3759000BFCBE2 /* DataSettingViewController.swift */; };
+		E8B9C5BB21F3759000BFCBE2 /* DoorSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B9C5BA21F3759000BFCBE2 /* DoorSettingViewController.swift */; };
 		E8B9C5BD21F3788800BFCBE2 /* humidityicon.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B9C5BC21F3788800BFCBE2 /* humidityicon.png */; };
 		E8B9C5C121F378D500BFCBE2 /* motionicon.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B9C5C021F378D400BFCBE2 /* motionicon.png */; };
 		E8B9C5C321F3818F00BFCBE2 /* TempActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B9C5C221F3818F00BFCBE2 /* TempActivityViewController.swift */; };
@@ -50,7 +50,7 @@
 		E8B9C5B221F2E1A700BFCBE2 /* emergencyicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emergencyicon.png; sourceTree = "<group>"; };
 		E8B9C5B421F2E1AC00BFCBE2 /* homeicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeicon.png; sourceTree = "<group>"; };
 		E8B9C5B621F2E1B200BFCBE2 /* lockicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockicon.png; sourceTree = "<group>"; };
-		E8B9C5BA21F3759000BFCBE2 /* DataSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSettingViewController.swift; sourceTree = "<group>"; };
+		E8B9C5BA21F3759000BFCBE2 /* DoorSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorSettingViewController.swift; sourceTree = "<group>"; };
 		E8B9C5BC21F3788800BFCBE2 /* humidityicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = humidityicon.png; sourceTree = "<group>"; };
 		E8B9C5C021F378D400BFCBE2 /* motionicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = motionicon.png; sourceTree = "<group>"; };
 		E8B9C5C221F3818F00BFCBE2 /* TempActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempActivityViewController.swift; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				E8B9C59B21F2E0D900BFCBE2 /* HomeViewController.swift */,
-				E8B9C5BA21F3759000BFCBE2 /* DataSettingViewController.swift */,
+				E8B9C5BA21F3759000BFCBE2 /* DoorSettingViewController.swift */,
 				E8B9C5C221F3818F00BFCBE2 /* TempActivityViewController.swift */,
 				E8B9C5CC21F3B6FA00BFCBE2 /* LoginViewController.swift */,
 				E8B9C5D121F3C11B00BFCBE2 /* CreateUsernameViewController.swift */,
@@ -328,7 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8B9C58C21F2E07A00BFCBE2 /* WPI_App.xcdatamodeld in Sources */,
-				E8B9C5BB21F3759000BFCBE2 /* DataSettingViewController.swift in Sources */,
+				E8B9C5BB21F3759000BFCBE2 /* DoorSettingViewController.swift in Sources */,
 				E8B9C5AC21F2E11100BFCBE2 /* UIColor+TC.swift in Sources */,
 				E8B9C58421F2E07A00BFCBE2 /* AppDelegate.swift in Sources */,
 				E8B9C5CD21F3B6FA00BFCBE2 /* LoginViewController.swift in Sources */,

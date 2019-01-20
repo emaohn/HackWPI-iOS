@@ -140,6 +140,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @objc func toggleDoorSettings(){
+        let stat = deviceData[0].value as! [String: Any]
+        let lockState = stat["lockstate"] as! Bool
+        if lockState {
+            NotificationCenter.default.post(name: NSNotification.Name("ChangeLockStateTrue"), object: nil)
+        } else {
+            NotificationCenter.default.post(name: NSNotification.Name("ChangeLockStateFalse"), object: nil)
+        }
+        
+        NotificationCenter.default.post(name: NSNotification.Name("ReloadDoorData"), object: nil)
+        
         if doorContainerBottomConstraint.constant == CGFloat(-200) {
             doorContainerBottomConstraint.constant = screenHeight/2 - 50
             tableView.isUserInteractionEnabled = false
