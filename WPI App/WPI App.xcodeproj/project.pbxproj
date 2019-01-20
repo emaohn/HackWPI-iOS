@@ -30,6 +30,7 @@
 		E8B9C5D021F3BD4400BFCBE2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B9C5CF21F3BD4400BFCBE2 /* User.swift */; };
 		E8B9C5D221F3C11B00BFCBE2 /* CreateUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B9C5D121F3C11B00BFCBE2 /* CreateUsernameViewController.swift */; };
 		E8B9C5D421F3C2D200BFCBE2 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B9C5D321F3C2D200BFCBE2 /* UserService.swift */; };
+		E8B9C5D621F3C81900BFCBE2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B9C5D521F3C81900BFCBE2 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		E8B9C5CF21F3BD4400BFCBE2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E8B9C5D121F3C11B00BFCBE2 /* CreateUsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUsernameViewController.swift; sourceTree = "<group>"; };
 		E8B9C5D321F3C2D200BFCBE2 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		E8B9C5D521F3C81900BFCBE2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F215E61D2ED71F37740846F8 /* Pods_WPI_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WPI_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -157,6 +159,7 @@
 			children = (
 				E8B9C5A721F2E11000BFCBE2 /* UIColor+TC.swift */,
 				E8B9C5D321F3C2D200BFCBE2 /* UserService.swift */,
+				E8B9C5D521F3C81900BFCBE2 /* Constants.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				E8B9C5D021F3BD4400BFCBE2 /* User.swift in Sources */,
 				E8B9C5D221F3C11B00BFCBE2 /* CreateUsernameViewController.swift in Sources */,
 				E8B9C5A521F2E10300BFCBE2 /* DataTableViewCell.swift in Sources */,
+				E8B9C5D621F3C81900BFCBE2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

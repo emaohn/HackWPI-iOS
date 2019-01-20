@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class TempActivityViewController: UIViewController {
     @IBOutlet var overallView: UIView!
@@ -20,6 +21,8 @@ class TempActivityViewController: UIViewController {
     @IBOutlet weak var efficiencyProgressView: UIProgressView!
     @IBOutlet weak var tempSetter: UIStepper!
     
+    var stats: [String: Any]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -27,15 +30,19 @@ class TempActivityViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tempSetter.value = 70.3
         reloadValues()
     }
     
     func reloadValues() {
-        goalTempLabel.text = "\(tempSetter.value)"
-        currentTempLabel.text = "65.8"
-        goalProgressView.progress = 0.95
-        efficiencyProgressView.progress = 0.6
+        if let stats = self.stats {
+            let tempGoal = stats["temperature_goal"] as! Double
+            let currentTemp = stats["temperature"] as! Double
+            tempSetter.value = tempGoal
+            goalTempLabel.text = "\(tempGoal)"
+            currentTempLabel.text = "\(currentTemp)"
+            goalProgressView.progress = Float(currentTemp/tempGoal)
+            efficiencyProgressView.progress = 0.6
+        }
     }
     
     func setup(){

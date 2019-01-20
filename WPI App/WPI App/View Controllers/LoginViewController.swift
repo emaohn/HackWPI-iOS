@@ -52,7 +52,7 @@ extension LoginViewController: FUIAuthDelegate {
 
         userRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if let user = User(snapshot: snapshot) {
-                User.setCurrent(user)
+                User.setCurrent(user, writeToUserDefaults: true)
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: .main)
                 if let initialViewController = storyboard.instantiateInitialViewController() {

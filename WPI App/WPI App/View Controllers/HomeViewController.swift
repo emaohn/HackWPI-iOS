@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    var ref: DatabaseReference!
+    var refHandle: DatabaseHandle!
+    var deviceData = [DataSnapshot]()
+    var dataRetrieved = false
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var doorSettingContainerView: UIView!
     @IBOutlet weak var doorContainerBottomConstraint: NSLayoutConstraint!
@@ -20,9 +24,32 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        retrieveData()
         setup()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(toggleDoorSettings), name: NSNotification.Name("ToggleDoorSettings"), object: nil)
+    }
+    
+    func retrieveData() {
+        let dataRef = Database.database().reference().child("devices")
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        
+        DispatchQueue.main.async {
+            dataRef.observeSingleEvent(of: .value) { (snapshot) in
+                
+                guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {return }
+                
+                self.deviceData = [DataSnapshot]()
+                
+                for device in snapshot {
+                    self.deviceData.append(device)
+                }
+                self.dataRetrieved = true
+                dispatchGroup.leave()
+                self.tableView.reloadData()
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,7 +67,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        if dataRetrieved {
+            return 6
+        } else  {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -59,19 +90,32 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath) as! DataTableViewCell
+        let stat = deviceData[0].value as! [String: Any]
         
         switch indexPath.row {
         case 0:
+            let doorState = stat["doorstate"] as! Bool
+            
             cell.titleLabel.text = "Door State >"
-            cell.statLabel.text = "OPEN"
+            if doorState {
+                cell.statLabel.text = "OPEN"
+            } else {
+                cell.statLabel.text = "CLOSED"
+            }
             cell.iconImageView.image = UIImage(named: "lockicon.png")
         case 1:
+            let temp = stat["temperature"] as! Double
             cell.titleLabel.text = "Temperature >"
-            cell.statLabel.text = "100"
+            cell.statLabel.text = "\(temp)"
             cell.iconImageView.image = UIImage(named: "homeicon.png")
         case 2:
+            let lightState = stat["lightstate"] as! Bool
             cell.titleLabel.text = "Light State >"
-            cell.statLabel.text = "BRIGHT"
+            if lightState {
+                cell.statLabel.text = "ON"
+            } else {
+                cell.statLabel.text = "OFF"
+            }
             cell.iconImageView.image = UIImage(named: "tempicon.png")
         case 3:
             cell.titleLabel.text = "Suspicions Raised"
@@ -109,6 +153,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else {return}
+        switch identifier {
+        case "openTempActivity":
+            guard let destination = segue.destination as? TempActivityViewController else {return}
+            destination.stats = deviceData[0].value as! [String: Any]
+        default: return
+        }
+    }
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
     }
 }
