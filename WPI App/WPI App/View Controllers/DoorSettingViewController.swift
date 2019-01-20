@@ -7,16 +7,21 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class DoorSettingViewController: UIViewController {
     var locked = false
     @IBOutlet weak var doorLockedSwitch: UISwitch!
     @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
     
+    var ref: DatabaseReference!
+    
     @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = Database.database().reference()
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadDoorData), name: NSNotification.Name("ReloadDoorData"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(changeLockStateTrue), name: NSNotification.Name("ChangeLockStateTrue"), object: nil)
@@ -28,13 +33,13 @@ class DoorSettingViewController: UIViewController {
     @IBAction func doorLockedToggled(_ sender: UISwitch) {
         guard let title = titleLabel.text else {return}
         if title == "LOCK DOOR" {
-            NotificationCenter.default.post(name: NSNotification.Name("ToggleLock"), object: nil)
+            ref?.child("devices/\(913)/lockstate").setValue(!locked)
         } else {
-            NotificationCenter.default.post(name: NSNotification.Name("ToggleLights"), object: nil)
+            ref?.child("devices/\(913)/lightstate").setValue(!locked)
         }
         locked = !locked
         reloadDoorData()
-        NotificationCenter.default.post(name: NSNotification.Name("ToggleDoorSettings"), object: nil)
+//        NotificationCenter.default.post(name: NSNotification.Name("ToggleDoorSettings"), object: nil)
     }
     
     @IBAction func tapGestureRecognizer(_ sender: Any) {

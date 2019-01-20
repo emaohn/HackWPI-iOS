@@ -75,8 +75,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 for device in snapshot {
                     self.deviceData.append(device)
                 }
-                self.dataRetrieved = true
+                
                 dispatchGroup.leave()
+                self.dataRetrieved = true
                 self.tableView.reloadData()
                 
             }
@@ -206,6 +207,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             doorContainerBottomConstraint.constant = screenHeight/2 - 50
             tableView.isUserInteractionEnabled = false
         } else {
+            retrieveData()
             doorContainerBottomConstraint.constant = -200
             tableView.isUserInteractionEnabled = true
         }
@@ -221,6 +223,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else {
             warningContainerBottomConstraint.constant = -200
             tableView.isUserInteractionEnabled = true
+            retrieveData()
         }
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
