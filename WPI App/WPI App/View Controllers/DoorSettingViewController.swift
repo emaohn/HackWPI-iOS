@@ -26,8 +26,15 @@ class DoorSettingViewController: UIViewController {
     }
     
     @IBAction func doorLockedToggled(_ sender: UISwitch) {
+        guard let title = titleLabel.text else {return}
+        if title == "LOCK DOOR" {
+            NotificationCenter.default.post(name: NSNotification.Name("ToggleLock"), object: nil)
+        } else {
+            NotificationCenter.default.post(name: NSNotification.Name("ToggleLights"), object: nil)
+        }
         locked = !locked
         reloadDoorData()
+        NotificationCenter.default.post(name: NSNotification.Name("ToggleDoorSettings"), object: nil)
     }
     
     @IBAction func tapGestureRecognizer(_ sender: Any) {

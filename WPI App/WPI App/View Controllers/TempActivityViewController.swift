@@ -21,20 +21,11 @@ class TempActivityViewController: UIViewController {
     @IBOutlet weak var efficiencyProgressView: UIProgressView!
     @IBOutlet weak var tempSetter: UIStepper!
     
+    var ref: DatabaseReference?
     var stats: [String: Any]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        reloadValues()
-        setup()
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        reloadValues()
-    }
-    
-    func reloadValues() {
         if let stats = self.stats {
             let tempGoal = stats["temperature_goal"] as! Double
             let currentTemp = stats["temperature"] as! Double
@@ -43,9 +34,44 @@ class TempActivityViewController: UIViewController {
             currentTempLabel.text = "\(currentTemp)"
             goalProgressView.progress = Float(currentTemp/tempGoal)
             efficiencyProgressView.progress = 0.6
-            percentToGoalLabel.text = "\(currentTemp/tempGoal)%"
+            let percent: Double
+            if currentTemp < tempGoal {
+                percent = (currentTemp/tempGoal) * 100
+            } else {
+                percent = (tempGoal/currentTemp) * 100
+            }
+            
+            percentToGoalLabel.text = String(format: "%.2f", percent) + "%"
+            goalProgressView.progress = Float(percent/100)
+            
             efficiencyPercentLabel.text = "60%"
         }
+        reloadValues()
+        
+        reloadValues()
+        setup()
+        // Do any additional setup after loading the view.
+    }
+    
+    func reloadValues() {
+        if let stats = self.stats {
+            let tempGoal = tempSetter.value
+            let currentTemp = stats["temperature"] as! Double
+            tempSetter.value = tempGoal
+            goalTempLabel.text = "\(tempGoal)"
+            currentTempLabel.text = "\(currentTemp)"
+            efficiencyProgressView.progress = 0.6
+            let percent: Double
+            if currentTemp < tempGoal {
+                percent = (currentTemp/tempGoal) * 100
+            } else {
+                percent = (tempGoal/currentTemp) * 100
+            }
+            percentToGoalLabel.text = String(format: "%.2f", percent) + "%"
+            goalProgressView.progress = Float(percent/100)
+            efficiencyPercentLabel.text = "60%"
+        }
+        ref = Database.database().reference()
     }
     
     func setup(){
@@ -77,6 +103,7 @@ class TempActivityViewController: UIViewController {
     }
 
     @IBAction func tempSetterToggled(_ sender: UIStepper) {
+        ref?.child("devices/\(913)/temperature_goal").setValue(tempSetter.value)
         reloadValues()
     }
 }

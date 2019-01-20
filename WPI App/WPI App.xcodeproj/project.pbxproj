@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BDB65F74D60F23C24EC698E5 /* Pods_WPI_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F215E61D2ED71F37740846F8 /* Pods_WPI_App.framework */; };
+		E878132A21F4213400B71861 /* logocerberus.png in Resources */ = {isa = PBXBuildFile; fileRef = E878132921F4213400B71861 /* logocerberus.png */; };
 		E8B9C58421F2E07A00BFCBE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B9C58321F2E07A00BFCBE2 /* AppDelegate.swift */; };
 		E8B9C58921F2E07A00BFCBE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8B9C58721F2E07A00BFCBE2 /* Main.storyboard */; };
 		E8B9C58C21F2E07A00BFCBE2 /* WPI_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E8B9C58A21F2E07A00BFCBE2 /* WPI_App.xcdatamodeld */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		354912916465F20CA3CD6184 /* Pods-WPI App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WPI App.release.xcconfig"; path = "Pods/Target Support Files/Pods-WPI App/Pods-WPI App.release.xcconfig"; sourceTree = "<group>"; };
+		E878132921F4213400B71861 /* logocerberus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logocerberus.png; sourceTree = "<group>"; };
 		E8A539EAEE18A52E415B20DE /* Pods-WPI App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WPI App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WPI App/Pods-WPI App.debug.xcconfig"; sourceTree = "<group>"; };
 		E8B9C58021F2E07A00BFCBE2 /* WPI App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WPI App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8B9C58321F2E07A00BFCBE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				E8B9C5B621F2E1B200BFCBE2 /* lockicon.png */,
 				E8B9C5C021F378D400BFCBE2 /* motionicon.png */,
 				E8B9C5BC21F3788800BFCBE2 /* humidityicon.png */,
+				E878132921F4213400B71861 /* logocerberus.png */,
 			);
 			path = "WPI App";
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				E8B9C58E21F2E07B00BFCBE2 /* Assets.xcassets in Resources */,
 				E8B9C5B121F2E1A300BFCBE2 /* tempicon.png in Resources */,
 				E8B9C5B721F2E1B200BFCBE2 /* lockicon.png in Resources */,
+				E878132A21F4213400B71861 /* logocerberus.png in Resources */,
 				E8B9C5B521F2E1AD00BFCBE2 /* homeicon.png in Resources */,
 				E8B9C58921F2E07A00BFCBE2 /* Main.storyboard in Resources */,
 				E8B9C5B321F2E1A700BFCBE2 /* emergencyicon.png in Resources */,

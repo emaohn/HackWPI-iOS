@@ -24,10 +24,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = Database.database().reference()
+        
         retrieveData()
         setup()
         
         NotificationCenter.default.addObserver(self, selector: #selector(toggleDoorSettings), name: NSNotification.Name("ToggleDoorSettings"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(toggleLock), name: NSNotification.Name("ToggleLock"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(toggleLights), name: NSNotification.Name("ToggleLights"), object: nil)
     }
     
     func retrieveData() {
@@ -94,7 +101,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             toggleDoorSettings()
         case 1: self.performSegue(withIdentifier: "openTempActivity", sender: self)
         case 2:
-            NotificationCenter.default.post(name: NSNotification.Name("SetDoorTitle"), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name("SetLightTitle"), object: nil)
             let stat = deviceData[0].value as! [String: Any]
             let lightstate = stat["lightstate"] as! Bool
             if lightstate {
@@ -175,16 +182,30 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         retrieveData()
     }
     
+    @objc func toggleLights() {
+        let stat = deviceData[0].value as! [String: Any]
+        let lightState = stat["lightstate"] as! Bool
+        ref.child("devices/\(913)/lightstate").setValue(!lightState)
+    }
+    
+    @objc func toggleLock() {
+        let stat = deviceData[0].value as! [String: Any]
+        let lockState = stat["lockstate"] as! Bool
+        ref.child("devices/\(913)/lockstate").setValue(!lockState)
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else {return}
         switch identifier {
         case "openTempActivity":
             guard let destination = segue.destination as? TempActivityViewController else {return}
-            destination.stats = deviceData[0].value as! [String: Any]
+            destination.stats = (deviceData[0].value as! [String: Any])
         default: return
         }
     }
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
         retrieveData()
     }
+
 }
