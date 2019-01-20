@@ -97,8 +97,17 @@
                                     <outlet property="delegate" destination="JeL-4q-Sfe" id="WZY-1K-0F7"/>
                                 </connections>
                             </tableView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4U-xO-Ddg">
+                                <rect key="frame" x="24" y="737" width="327" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="fOa-JT-U9X"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="EAH-1l-YjY" kind="embed" id="iYS-ia-Znu"/>
+                                </connections>
+                            </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ul-LG-yfW">
-                                <rect key="frame" x="30" y="667" width="315" height="200"/>
+                                <rect key="frame" x="24" y="667" width="327" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="Ugx-46-7Gh"/>
                                 </constraints>
@@ -110,13 +119,17 @@
                         <color key="backgroundColor" red="0.1019607843" green="0.12549019610000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="c4U-xO-Ddg" firstAttribute="centerX" secondItem="LPp-ve-dcr" secondAttribute="centerX" id="1ft-TN-xa5"/>
                             <constraint firstItem="LPp-ve-dcr" firstAttribute="bottom" secondItem="2rT-Q0-Tka" secondAttribute="bottom" id="4xH-F3-DFb"/>
+                            <constraint firstItem="6Ul-LG-yfW" firstAttribute="top" secondItem="c4U-xO-Ddg" secondAttribute="bottom" constant="-200" id="85L-T0-Qyf"/>
                             <constraint firstItem="LPp-ve-dcr" firstAttribute="bottom" secondItem="6Ul-LG-yfW" secondAttribute="bottom" constant="-200" id="Adc-J7-tF1"/>
+                            <constraint firstItem="LPp-ve-dcr" firstAttribute="trailing" secondItem="c4U-xO-Ddg" secondAttribute="trailing" constant="24" id="EuM-RN-TiB"/>
                             <constraint firstItem="2rT-Q0-Tka" firstAttribute="top" secondItem="LPp-ve-dcr" secondAttribute="top" id="Mhn-UP-NlF"/>
-                            <constraint firstItem="LPp-ve-dcr" firstAttribute="trailing" secondItem="6Ul-LG-yfW" secondAttribute="trailing" constant="30" id="RAn-pA-src"/>
+                            <constraint firstItem="LPp-ve-dcr" firstAttribute="trailing" secondItem="6Ul-LG-yfW" secondAttribute="trailing" constant="24" id="RAn-pA-src"/>
                             <constraint firstItem="LPp-ve-dcr" firstAttribute="trailing" secondItem="2rT-Q0-Tka" secondAttribute="trailing" id="TBC-oP-Xhl"/>
+                            <constraint firstItem="c4U-xO-Ddg" firstAttribute="leading" secondItem="LPp-ve-dcr" secondAttribute="leading" constant="24" id="fUG-ub-hY2"/>
                             <constraint firstItem="2rT-Q0-Tka" firstAttribute="leading" secondItem="LPp-ve-dcr" secondAttribute="leading" id="y1m-pM-b9u"/>
-                            <constraint firstItem="6Ul-LG-yfW" firstAttribute="leading" secondItem="LPp-ve-dcr" secondAttribute="leading" constant="30" id="yJu-8V-eZQ"/>
+                            <constraint firstItem="6Ul-LG-yfW" firstAttribute="leading" secondItem="LPp-ve-dcr" secondAttribute="leading" constant="24" id="yJu-8V-eZQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LPp-ve-dcr"/>
                     </view>
@@ -125,6 +138,8 @@
                         <outlet property="doorContainerBottomConstraint" destination="Adc-J7-tF1" id="5I6-O0-5Wc"/>
                         <outlet property="doorSettingContainerView" destination="6Ul-LG-yfW" id="xMG-SX-NHO"/>
                         <outlet property="tableView" destination="2rT-Q0-Tka" id="4Kf-Sa-iVt"/>
+                        <outlet property="warningContainerBottomConstraint" destination="85L-T0-Qyf" id="EM9-pI-bhf"/>
+                        <outlet property="warningContainerView" destination="c4U-xO-Ddg" id="Rqg-4T-e9f"/>
                         <segue destination="9a9-MZ-rAb" kind="show" identifier="openTempActivity" id="QfJ-LV-nsZ"/>
                     </connections>
                 </viewController>
@@ -374,14 +389,14 @@
             <objects>
                 <viewController id="Pkq-YI-8vB" customClass="DoorSettingViewController" customModule="WPI_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dCe-Zr-peF">
-                        <rect key="frame" x="0.0" y="0.0" width="315" height="200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="327" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="97" translatesAutoresizingMaskIntoConstraints="NO" id="xeK-B4-UsL">
-                                <rect key="frame" x="15" y="83.5" width="285" height="33"/>
+                                <rect key="frame" x="15" y="82.5" width="297" height="35"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCK DOOR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGK-96-Whl">
-                                        <rect key="frame" x="0.0" y="0.0" width="137.5" height="33"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="146.5" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="JGK-96-Whl" secondAttribute="height" multiplier="137:33" id="cnQ-yv-Afy"/>
                                         </constraints>
@@ -390,7 +405,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ptp-q4-jqN">
-                                        <rect key="frame" x="234.5" y="0.0" width="52.5" height="33"/>
+                                        <rect key="frame" x="243.5" y="0.0" width="55.5" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Ptp-q4-jqN" secondAttribute="height" multiplier="47:31" id="q0A-Lf-42K"/>
                                         </constraints>
@@ -428,7 +443,58 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2452" y="-46"/>
+            <point key="canvasLocation" x="2761" y="-37"/>
+        </scene>
+        <!--Warning View Controller-->
+        <scene sceneID="GM4-oH-Ka4">
+            <objects>
+                <viewController id="EAH-1l-YjY" customClass="WarningViewController" customModule="WPI_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TXS-Ce-GuN">
+                        <rect key="frame" x="0.0" y="0.0" width="327" height="130"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="sBg-9t-LJA">
+                                <rect key="frame" x="15" y="27" width="297" height="76"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WARNING!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cT9-mE-ZJW">
+                                        <rect key="frame" x="97" y="0.0" width="103.5" height="29"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="24"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Potential intruder! Your door was opened while in a locked state." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWd-r0-Xot">
+                                        <rect key="frame" x="6.5" y="35" width="284.5" height="41"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.82745098039999998" green="0.1647058824" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="sBg-9t-LJA" firstAttribute="leading" secondItem="TXS-Ce-GuN" secondAttribute="leading" constant="15" id="AAK-1u-sFA"/>
+                            <constraint firstItem="sBg-9t-LJA" firstAttribute="centerY" secondItem="TXS-Ce-GuN" secondAttribute="centerY" id="NFj-JN-Fgl"/>
+                            <constraint firstAttribute="trailing" secondItem="sBg-9t-LJA" secondAttribute="trailing" constant="15" id="PJQ-tm-1MV"/>
+                            <constraint firstItem="sBg-9t-LJA" firstAttribute="centerX" secondItem="TXS-Ce-GuN" secondAttribute="centerX" id="me6-va-RqB"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="9qH-Z5-wsA" appends="YES" id="lbG-ru-sOM"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="tapGestureRecognizer" destination="9qH-Z5-wsA" id="d4T-dA-6gT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HDy-Nv-wyb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="9qH-Z5-wsA">
+                    <connections>
+                        <action selector="tapGestureRecognizer:" destination="EAH-1l-YjY" id="iyh-TB-plx"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2063" y="-47"/>
         </scene>
     </scenes>
     <resources>

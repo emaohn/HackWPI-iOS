@@ -17,6 +17,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var doorSettingContainerView: UIView!
     @IBOutlet weak var doorContainerBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var warningContainerView: UIView!
+    @IBOutlet weak var warningContainerBottomConstraint: NSLayoutConstraint!
     
     var refreshControl = UIRefreshControl()
  
@@ -42,10 +44,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         NotificationCenter.default.addObserver(self, selector: #selector(toggleLock), name: NSNotification.Name("ToggleLock"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(toggleLights), name: NSNotification.Name("ToggleLights"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(toggleWarning), name: NSNotification.Name("ToggleWarning"), object: nil)
     }
     
     @objc func refresh(refreshControl: UIRefreshControl) {
         retrieveData()
+        let stat = deviceData[0].value as! [String: Any]
+        let open = stat["doorstate"] as! Bool
+        let locked = stat["lockstate"] as! Bool
+        
+        if open && locked {
+            toggleWarning()
+        }
+        
         refreshControl.endRefreshing()
     }
     
@@ -67,8 +78,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.dataRetrieved = true
                 dispatchGroup.leave()
                 self.tableView.reloadData()
+                
             }
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,6 +96,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         doorSettingContainerView.layer.shadowRadius = 15
         doorSettingContainerView.layer.cornerRadius = 10
         doorSettingContainerView.layer.masksToBounds = true
+        
+        warningContainerView.layer.shadowOffset = CGSize(width: 0, height: 1)
+        warningContainerView.layer.shadowOpacity = 1
+        warningContainerView.layer.shadowOffset = CGSize.zero
+        warningContainerView.layer.shadowColor = UIColor.black.cgColor
+        warningContainerView.layer.shadowRadius = 15
+        warningContainerView.layer.cornerRadius = 10
+        warningContainerView.layer.masksToBounds = true
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -124,7 +145,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             NotificationCenter.default.post(name: NSNotification.Name("ReloadDoorData"), object: nil)
             toggleDoorSettings()
-        //case 3: self.performSegue(withIdentifier: "openHomeActivity", sender: self)
         default: print("nothing")
         }
     }
@@ -163,8 +183,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.statLabel.text = "157"
             cell.iconImageView.image = UIImage(named: "emergencyicon.png")
         case 4:
+            let humidity = stat["humidity"] as! Double
             cell.titleLabel.text = "Humidity"
-            cell.statLabel.text = "15%"
+            cell.statLabel.text = "\(humidity)"
             cell.iconImageView.image = UIImage(named: "humidityicon.png")
         case 5:
             cell.titleLabel.text = "Motion Activity"
@@ -191,7 +212,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
-        retrieveData()
+    }
+    
+    @objc func toggleWarning(){
+        if warningContainerBottomConstraint.constant == CGFloat(-200) {
+            warningContainerBottomConstraint.constant = screenHeight/2 - 50
+            tableView.isUserInteractionEnabled = false
+        } else {
+            warningContainerBottomConstraint.constant = -200
+            tableView.isUserInteractionEnabled = true
+        }
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     @objc func toggleLights() {
