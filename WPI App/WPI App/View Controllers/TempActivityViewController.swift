@@ -25,6 +25,7 @@ class TempActivityViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        reloadValues()
         setup()
         // Do any additional setup after loading the view.
     }

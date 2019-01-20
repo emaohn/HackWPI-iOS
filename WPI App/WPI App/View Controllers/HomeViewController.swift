@@ -53,7 +53,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
+        retrieveData()
     }
     
     func setup(){
@@ -160,7 +160,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
-        tableView.reloadData()
+        retrieveData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -173,5 +173,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
+        retrieveData()
     }
 }
