@@ -43,6 +43,8 @@ class TempActivityViewController: UIViewController {
             currentTempLabel.text = "\(currentTemp)"
             goalProgressView.progress = Float(currentTemp/tempGoal)
             efficiencyProgressView.progress = 0.6
+            percentToGoalLabel.text = "\(currentTemp/tempGoal)%"
+            efficiencyPercentLabel.text = "60%"
         }
     }
     

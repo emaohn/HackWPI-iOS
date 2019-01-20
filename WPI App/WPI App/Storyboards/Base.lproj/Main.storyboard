@@ -418,6 +418,7 @@
                     <connections>
                         <outlet property="doorLockedSwitch" destination="Ptp-q4-jqN" id="tOn-Ts-16V"/>
                         <outlet property="tapGestureRecognizer" destination="VNL-cp-NGA" id="dV2-fa-4Cj"/>
+                        <outlet property="titleLabel" destination="JGK-96-Whl" id="hOi-fb-wUr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nVs-Iq-Gqm" userLabel="First Responder" sceneMemberID="firstResponder"/>

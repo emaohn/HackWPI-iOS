@@ -13,12 +13,16 @@ class DoorSettingViewController: UIViewController {
     @IBOutlet weak var doorLockedSwitch: UISwitch!
     @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
     
+    @IBOutlet weak var titleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadDoorData), name: NSNotification.Name("ReloadDoorData"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(changeLockStateTrue), name: NSNotification.Name("ChangeLockStateTrue"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(changeLockStateFalse), name: NSNotification.Name("ChangeLockStateFalse"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setLockTitle), name: NSNotification.Name("SetLockTitle"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setLightTitle), name: NSNotification.Name("SetLightTitle"), object: nil)
     }
     
     @IBAction func doorLockedToggled(_ sender: UISwitch) {
@@ -44,5 +48,13 @@ class DoorSettingViewController: UIViewController {
     
     @objc func changeLockStateFalse() {
         locked = false
+    }
+    
+    @objc func setLockTitle(){
+        titleLabel.text = "LOCK DOOR"
+    }
+    
+    @objc func setLightTitle() {
+        titleLabel.text = "LIGHTS ON"
     }
 }
