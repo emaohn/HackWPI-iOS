@@ -18,12 +18,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var doorSettingContainerView: UIView!
     @IBOutlet weak var doorContainerBottomConstraint: NSLayoutConstraint!
     
+    var refreshControl = UIRefreshControl()
+ 
     public var screenHeight: CGFloat {
         return UIScreen.main.bounds.height
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        
+        tableView.refreshControl = refreshControl
         
         ref = Database.database().reference()
         
@@ -35,6 +42,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         NotificationCenter.default.addObserver(self, selector: #selector(toggleLock), name: NSNotification.Name("ToggleLock"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(toggleLights), name: NSNotification.Name("ToggleLights"), object: nil)
+    }
+    
+    @objc func refresh(refreshControl: UIRefreshControl) {
+        retrieveData()
+        refreshControl.endRefreshing()
     }
     
     func retrieveData() {
