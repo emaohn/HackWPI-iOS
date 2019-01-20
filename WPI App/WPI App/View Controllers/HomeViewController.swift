@@ -11,7 +11,7 @@ import FirebaseDatabase
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var ref: DatabaseReference!
-    var refHandle: DatabaseHandle!
+    //var refHandle: DatabaseHandle!
     var deviceData = [DataSnapshot]()
     var dataRetrieved = false
     @IBOutlet weak var tableView: UITableView!
@@ -41,9 +41,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         NotificationCenter.default.addObserver(self, selector: #selector(toggleDoorSettings), name: NSNotification.Name("ToggleDoorSettings"), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(toggleLock), name: NSNotification.Name("ToggleLock"), object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(toggleLights), name: NSNotification.Name("ToggleLights"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(toggleLock), name: NSNotification.Name("ToggleLock"), object: nil)
+//
+//        NotificationCenter.default.addObserver(self, selector: #selector(toggleLights), name: NSNotification.Name("ToggleLights"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(toggleWarning), name: NSNotification.Name("ToggleWarning"), object: nil)
     }
     
@@ -230,18 +230,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    @objc func toggleLights() {
-        let stat = deviceData[0].value as! [String: Any]
-        let lightState = stat["lightstate"] as! Bool
-        ref.child("devices/\(913)/lightstate").setValue(!lightState)
-    }
-    
-    @objc func toggleLock() {
-        let stat = deviceData[0].value as! [String: Any]
-        let lockState = stat["lockstate"] as! Bool
-        ref.child("devices/\(913)/lockstate").setValue(!lockState)
-        
-    }
+//    @objc func toggleLights() {
+//        let stat = deviceData[0].value as! [String: Any]
+//        let lightState = stat["lightstate"] as! Bool
+//        ref.child("devices/\(913)/lightstate").setValue(!lightState)
+//    }
+//
+//    @objc func toggleLock() {
+//        let stat = deviceData[0].value as! [String: Any]
+//        let lockState = stat["lockstate"] as! Bool
+//        ref.child("devices/\(913)/lockstate").setValue(!lockState)
+//
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else {return}
